@@ -1,1 +1,28 @@
-index.html.erb
+<div class="container">
+  <h3>Homepage of my app</h3>
+</div>
+<div class="container">
+  <h4>Spotify Music and Shit!</h4>
+  <p>Listen to a preview of a song!</p>
+  <% if @track %>
+    <audio controls>
+      <source src=<%= @track.preview_url %> > Click here
+      </audio>
+  <% end %>
+  <%= form_for(:song, url: "/songs")  do |f| %>
+    <div class="error">
+      <% if @errors %>
+        <% @errors.each do |error| %>
+          <%= error  %>
+        <% end %>
+      <% end %>
+    </div>
+    <%= label_tag "What song do you want to hear? " %><br>
+    <%= f.text_field :name, minlength: 3 %>
+    <br><br>
+    <%= f.submit 'Play song' %>
+  <% end %>
+</div>
+
+
+
