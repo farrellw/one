@@ -9,11 +9,7 @@
       <source src=<%= @track.preview_url %> > Click here
       </audio>
   <% end %>
-  <%=  %>
-</div>
-
-
-<%= form_for(:song, url: categories_path)  do |f| %>
+  <%= form_for(:song, url: "/songs")  do |f| %>
     <div class="error">
       <% if @errors %>
         <% @errors.each do |error| %>
@@ -21,8 +17,12 @@
         <% end %>
       <% end %>
     </div>
-  <%= label_tag "Add a new category:" %><br>
-  <%= f.text_field :name, class: "input-lg", minlength: 3 %>
-  <br><br>
-  <%= f.submit 'Save Category', class: "btn btn-warning" %>
-<% end %>
+    <%= label_tag "What song do you want to hear? " %><br>
+    <%= f.text_field :name, minlength: 3 %>
+    <br><br>
+    <%= f.submit 'Play song' %>
+  <% end %>
+</div>
+
+
+
