@@ -1,1 +1,28 @@
-index.html.erb
+<div class="container">
+  <h3>Homepage of my app</h3>
+</div>
+<div class="container">
+  <h4>Spotify Music and Shit!</h4>
+  <p>Listen to a preview of a song!</p>
+  <% if @track %>
+    <audio controls>
+      <source src=<%= @track.preview_url %> > Click here
+      </audio>
+  <% end %>
+  <%=  %>
+</div>
+
+
+<%= form_for(:song, url: categories_path)  do |f| %>
+    <div class="error">
+      <% if @errors %>
+        <% @errors.each do |error| %>
+          <%= error  %>
+        <% end %>
+      <% end %>
+    </div>
+  <%= label_tag "Add a new category:" %><br>
+  <%= f.text_field :name, class: "input-lg", minlength: 3 %>
+  <br><br>
+  <%= f.submit 'Save Category', class: "btn btn-warning" %>
+<% end %>
