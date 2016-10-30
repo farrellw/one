@@ -36,9 +36,8 @@ $(document).ready(function($) {
       urlHolder.append("<audio controls> <source src=" + urlToUpdate + "> </audio>");
       $("#music").find("input[type=submit]").removeAttr('disabled');
     })
-    .fail(function(error) {
-      console.log("error");
-      console.log(error['errors'])
+    .fail(function() {
+      console.log("error")
     })
     .always(function() {
       console.log("complete");
