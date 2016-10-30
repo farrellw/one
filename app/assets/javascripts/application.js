@@ -32,7 +32,7 @@ $(document).ready(function($) {
       console.log(songInfo)
       var urlToUpdate = songInfo['url'];
       urlHolder.empty();
-      urlHolder.append("<p>You have chosen to listen to " + songInfo['name' + "by "+ songInfo['artist'] + "</p>")
+      urlHolder.append("<p>You have chosen to listen to " + songInfo['name'] + "by "+ songInfo['artist'] + "</p>")
       urlHolder.append("<audio controls> <source src=" + urlToUpdate + "> </audio>");
       $("#music").find("input[type=submit]").removeAttr('disabled');
     })

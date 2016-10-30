@@ -1,8 +1,12 @@
 class SongsController < ApplicationController
 
   def create
-    @song = Song.new(song_params)
-    @track = RSpotify::Track.search(@song.name)
+    if params[:song][:name].length < 1
+      @song = Song.new(name: "Sorry")
+    else
+      @song = Song.new(song_params)
+    end
+    @track = RSpotify::Track.search(@song.name).first
     @song.preview_url = @track.preview_url
     @song.artist = @track.artists.first.name
     respond_to do |format|
@@ -19,8 +23,7 @@ class SongsController < ApplicationController
 
   private
     def song_params
-      params.require(:song).permit(:name) if params[:song][:name].length > 0
-      {name: "Sorry"} if params[:song][:name].length < 1
+      params.require(:song).permit(:name)
     end
 
 

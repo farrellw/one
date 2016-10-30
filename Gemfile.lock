@@ -131,6 +131,8 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rest_client (1.8.3)
       netrc (~> 0.7.7)
     rspotify (1.10.0)
@@ -186,6 +188,7 @@ DEPENDENCIES
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
+  rest-client
   rspotify
   sass-rails (~> 5.0)
   spring
