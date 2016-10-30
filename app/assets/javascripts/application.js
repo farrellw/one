@@ -28,14 +28,17 @@ $(document).ready(function($) {
       dataType: "json",
       data: songSubmitted
     })
-    .done(function(data) {
-      var urlToUpdate = data['url'];
-      urlHolder.empty()
-      urlHolder.append("<audio controls> <source src=" + urlToUpdate + "> </audio>")
-      $("#audio-container").find("input[type=submit]").removeAttr('disabled');
+    .done(function(songInfo) {
+      console.log(songInfo)
+      var urlToUpdate = songInfo['url'];
+      urlHolder.empty();
+      urlHolder.append("<p>You have chosen to listen to " + songInfo['name' + "by "+ songInfo['artist'] + "</p>")
+      urlHolder.append("<audio controls> <source src=" + urlToUpdate + "> </audio>");
+      $("#music").find("input[type=submit]").removeAttr('disabled');
     })
-    .fail(function() {
+    .fail(function(error) {
       console.log("error");
+      console.log(error['errors'])
     })
     .always(function() {
       console.log("complete");
