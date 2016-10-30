@@ -29,7 +29,6 @@ $(document).ready(function($) {
       data: songSubmitted
     })
     .done(function(songInfo) {
-      console.log(songInfo)
       var urlToUpdate = songInfo['url'];
       urlHolder.empty();
       urlHolder.append("<p>You have chosen to listen to " + songInfo['name'] + "by "+ songInfo['artist'] + "</p>")

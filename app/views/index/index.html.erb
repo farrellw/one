@@ -1,62 +1,70 @@
-<div class="container">
+<div class="container jumbotron">
   <h3>Homepage of my app</h3>
 </div>
-<div class="container" id="music">
-  <h4>Spotify API </h4>
-  <p>Type in the name of the song, get back a preview of that song</p>
-  <div id="audio-container">
-    <% if @song %>
-    <p>You have chosen to listen to <%= @song.name %> by <%= @song.artist %> </p>
-      <audio controls>
-        <source src=<%= @song.preview_url %> >
-      </audio>
-    <% end %>
+<div class="row">
+  <div <div class="container col-sm-1">
+
   </div>
-  <%= form_for(:song, url: "/songs")  do |f| %>
-    <div class="error">
-      <% if @errors %>
-        <% @errors.each do |error| %>
-          <%= error  %>
-        <% end %>
+  <div class="container col-sm-3 well" id="music">
+    <h4>Spotify API </h4>
+    <p>Type in the name of the song, get back a preview of that song</p>
+    <div id="audio-container">
+      <% if @song %>
+      <p>You have chosen to listen to <%= @song.name %> by <%= @song.artist %> </p>
+        <audio controls>
+          <source src=<%= @song.preview_url %> >
+        </audio>
       <% end %>
     </div>
-    <%= label_tag "What song do you want to hear? " %><br>
-    <%= f.text_field :name, minlength: 3 %>
-    <br><br>
-    <%= f.submit 'Play song' %>
-  <% end %>
-</div>
-<div class="container" id="instagram">
-  <a id="show" href="/instagram">Check out your instagram:</a>
-  <a id="hide" href="/never/gonna/be/clicked/outside/js">Hide your pics!</a>
-
-  <div id="my-pictures">
-    <% if @media %>
-      <h1>Instagram for <%= @media.first.user.username %> </h1>
-      <% @media.each do |media| %>
-        <div class="ind-picture">
-          <%= image_tag media.images.low_resolution.url %>
-        </div>
-      <% end %>
-  <% end %>
-  </div>
-</div>
-
-<div class="container" id="weather">
-  <h3>Search for your weather shit here! </h3>
-  <%= form_for(:weathers, url: "/weather")  do |f| %>
-    <%= label_tag "Which city would you like to search for?" %><br>
-    <%= f.text_field :city %>
-    <%= f.text_field :state %>
-    <br><br>
-    <%= f.submit 'Get the weather' %>
-  <% end %>
-  <div id='weather-results'>
-    <% if @conditions %>
-    <h4>It is currently <%= @description %>, with a temperature of <%= @temperature %> degrees in the city of <%= @city %> </h4>
+    <%= form_for(:song, url: "/songs")  do |f| %>
+      <div class="error">
+        <% if @errors %>
+          <% @errors.each do |error| %>
+            <%= error  %>
+          <% end %>
+        <% end %>
+      </div>
+      <%= label_tag "What song do you want to hear? " %><br>
+      <%= f.text_field :name, minlength: 3 %>
+      <br><br>
+      <%= f.submit 'Play song' %>
     <% end %>
   </div>
-</div>
 
+  <div class="container col-sm-4 well" id="instagram">
+    <a id="show" href="/instagram">Check out your instagram:</a>
+    <a id="hide" href="/never/gonna/be/clicked/outside/js">Hide your pics!</a>
+
+    <div id="my-pictures">
+      <% if @media %>
+        <h1>Instagram for <%= @media.first.user.username %> </h1>
+        <% @media.each do |media| %>
+          <div class="ind-picture">
+            <%= image_tag media.images.low_resolution.url %>
+          </div>
+        <% end %>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="container col-sm-3 well" id="weather">
+    <h3>Search for your weather shit here! </h3>
+    <%= form_for(:weathers, url: "/weather")  do |f| %>
+      <%= label_tag "Which city would you like to search for?" %><br>
+      <%= f.text_field :city %>
+      <%= f.text_field :state %>
+      <br><br>
+      <%= f.submit 'Get the weather' %>
+    <% end %>
+    <div id='weather-results'>
+      <% if @conditions %>
+      <h4>It is currently <%= @description %>, with a temperature of <%= @temperature %> degrees in the city of <%= @city %> </h4>
+      <% end %>
+    </div>
+  </div>
+  <div <div class="container col-sm-1">
+
+  </div>
+</div>
 
 

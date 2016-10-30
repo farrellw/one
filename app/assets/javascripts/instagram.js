@@ -14,7 +14,7 @@ $(document).ready(function($) {
       pictureHolder.empty();
       pictureHolder.prepend("<h2>Instagram for " + infoBack['username'] + "</h2>");
       for ( i = 0 ; i < picUrls.length; i++) {
-        pictureHolder.append("<div class='ind-picture'><img src=" + picUrls[i] + ">")
+        pictureHolder.append("<div class='media ind-picture'><img class='img-thumbnail' src=" + picUrls[i] + ">")
       }
     })
     .fail(function() {
