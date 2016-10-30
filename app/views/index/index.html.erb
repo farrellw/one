@@ -51,10 +51,10 @@
     <br><br>
     <%= f.submit 'Get the weather' %>
   <% end %>
-
-
   <div id='weather-results'>
-
+    <% if @conditions %>
+    <h4>It is currently <%= @description %>, with a temperature of <%= @temperature %> degrees in the city of <%= @city %> </h4>
+    <% end %>
   </div>
 </div>
 
