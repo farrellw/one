@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   post '/instagram', to: 'instagram#create', as: :instagram
 
+  post '/weather', to: 'weather#create', as: :weather
+
 end

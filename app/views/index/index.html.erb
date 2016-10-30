@@ -42,5 +42,21 @@
   </div>
 </div>
 
+<div class="container" id="weather">
+  <h3>Search for your weather shit here! </h3>
+  <%= form_for(:weathers, url: "/weather")  do |f| %>
+    <%= label_tag "Which city would you like to search for?" %><br>
+    <%= f.text_field :city %>
+    <%= f.text_field :state %>
+    <br><br>
+    <%= f.submit 'Get the weather' %>
+  <% end %>
+
+
+  <div id='weather-results'>
+
+  </div>
+</div>
+
 
 
