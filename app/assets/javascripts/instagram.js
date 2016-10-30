@@ -1,8 +1,7 @@
 $(document).ready(function($) {
 
-  $("#instagram").on("click", "a", function(event) {
+  $("#instagram").on("click", "#show", function(event) {
     event.preventDefault();
-    console.log("Clicked!");
     var pictureHolder = $(this).closest('#instagram').find('#my-pictures');
 
     $.ajax({
@@ -10,13 +9,13 @@ $(document).ready(function($) {
       url: "/instagram/",
       dataType: "json"
     })
-    .done(function(infoback) {
-      console.log("Back from server!!!")
-      console.log(infoBack)
+    .done(function(infoBack) {
+      var picUrls = infoBack['urls'];
       pictureHolder.empty();
-      // urlHolder.append("<p>You have chosen to listen to " + songInfo['name'] + "by "+ songInfo['artist'] + "</p>")
-      // urlHolder.append("<audio controls> <source src=" + urlToUpdate + "> </audio>");
-      // $("#music").find("input[type=submit]").removeAttr('disabled');
+      pictureHolder.prepend("<h2>Instagram for " + infoBack['username'] + "</h2>");
+      for ( i = 0 ; i < picUrls.length; i++) {
+        pictureHolder.append("<div class='ind-picture'><img src=" + picUrls[i] + ">")
+      }
     })
     .fail(function() {
       console.log("error")
@@ -26,5 +25,11 @@ $(document).ready(function($) {
     });
   });
 
+  $("#instagram").on("click", "#hide", function(event) {
+    event.preventDefault();
+    var pictureHolder = $(this).closest('#instagram').find('#my-pictures');
+
+      pictureHolder.empty();
+      });
 });
 

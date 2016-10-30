@@ -1,6 +1,7 @@
 class InstagramController < ApplicationController
 
   def create
+    p "got to create!"
     client = Instagram.client(:access_token => ENV['INSTAGRAM_ACCESS_TOKEN'])
     @media = client.user_recent_media
     media_urls = []

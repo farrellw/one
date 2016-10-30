@@ -1,7 +1,7 @@
 class IndexController < ApplicationController
   def index
-    client = Instagram.client(:access_token => ENV['INSTAGRAM_ACCESS_TOKEN'])
-    @media = client.user_recent_media
+    # client = Instagram.client(:access_token => ENV['INSTAGRAM_ACCESS_TOKEN'])
+    # @media = client.user_recent_media
   end
 
   def instagram

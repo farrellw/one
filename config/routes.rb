@@ -8,6 +8,6 @@ Rails.application.routes.draw do
 
   resources :songs, only: [ :index, :show, :new, :create ]
 
-  get '/instagram', to: 'instagram#create', as: :instagram
+  post '/instagram', to: 'instagram#create', as: :instagram
 
 end
