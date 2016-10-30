@@ -26,6 +26,21 @@
     <%= f.submit 'Play song' %>
   <% end %>
 </div>
+<div class="container" id="instagram">
+  <a id="show" href="/instagram">Check out your instagram:</a>
+  <a id="hide" href="/never/gonna/be/clicked/outside/js">Hide your pics!</a>
+
+  <div id="my-pictures">
+    <% if @media %>
+      <h1>Instagram for <%= @media.first.user.username %> </h1>
+      <% @media.each do |media| %>
+        <div class="ind-picture">
+          <%= image_tag media.images.low_resolution.url %>
+        </div>
+      <% end %>
+  <% end %>
+  </div>
+</div>
 
 
 
