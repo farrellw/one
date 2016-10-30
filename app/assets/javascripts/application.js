@@ -16,7 +16,29 @@
 //= require_tree .
 
 $(document).ready(function($) {
-  $("#music").on("click", "h4", function(event) {
-    console.log("CLicked!")
+
+  $("#music").on("submit", "form", function(event) {
+    event.preventDefault();
+    var songSubmitted = $(this).serialize();
+    var urlHolder = $(this).closest('#music').find('#audio-container')
+
+    $.ajax({
+      type: "POST",
+      url: "/songs/",
+      dataType: "json",
+      data: songSubmitted
+    })
+    .done(function(data) {
+      var urlToUpdate = data['url'];
+      urlHolder.empty()
+      urlHolder.append("<audio controls> <source src=" + urlToUpdate + "> </audio>")
+      $("#audio-container").find("input[type=submit]").removeAttr('disabled');
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
   });
 });

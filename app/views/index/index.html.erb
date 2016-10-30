@@ -1,14 +1,16 @@
 <div class="container">
   <h3>Homepage of my app</h3>
 </div>
-<div class="container">
+<div class="container" id="music">
   <h4>Spotify Music and Shit!</h4>
   <p>Listen to a preview of a song!</p>
-  <% if @track %>
-    <audio controls>
-      <source src=<%= @track.preview_url %> > Click here
+  <div id="audio-container">
+    <% if @track %>
+      <audio controls>
+        <source src=<%= @track.preview_url %> >
       </audio>
-  <% end %>
+    <% end %>
+  </div>
   <%= form_for(:song, url: "/songs")  do |f| %>
     <div class="error">
       <% if @errors %>

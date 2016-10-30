@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20161029230420) do
     t.string   "name"
     t.string   "preview_url"
     t.string   "full_url"
+    t.string   "artist"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
