@@ -5,20 +5,7 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+This app is a function of API references and javascript.  It uses a rails 5 framework, server-side ruby 2.3.1 and client side javascript.  Using the app you can get information from spotify, instagram, and weather.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The app is meant as a practice for javascript and API querying, but also practices skills such as protecting auth keys when necessary through environment variables.
+The project can be accessed on heroku at https://one-one.herokuapp.com/
